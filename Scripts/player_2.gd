@@ -27,12 +27,12 @@ func movement(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("Jump_1") and is_on_floor():
+	if Input.is_action_just_pressed("Jump_2") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("Left_1", "Right_1")
+	var direction := Input.get_axis("Left_2", "Right_2")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -40,7 +40,7 @@ func movement(delta: float) -> void:
 func _ladder_detect():
 	if $LadderDetectRay.is_colliding() and !is_on_floor():
 		print("kedetect")
-		if Input.is_action_pressed("up_1") or Input.is_action_pressed("down_1"):
+		if Input.is_action_pressed("up_2") or Input.is_action_pressed("down_2"):
 			on_ladder = true
 			
 			var desired_x_pos: float = $LadderDetectRay.get_collider().get_child($LadderDetectRay.get_collider_shape()).global_position.x
@@ -51,7 +51,7 @@ func _ladder_detect():
 	else:
 		on_ladder = false
 func ladder_movement(delta: float):
-	var y_input: float = Input.get_action_strength("down_1") - Input.get_action_strength("up_1")
+	var y_input: float = Input.get_action_strength("down_2") - Input.get_action_strength("up_2")
 	var velocity_weight: float = delta * (ACCELERATION if y_input else FRICTION)
 	velocity.y = lerp(velocity.y, y_input * MAX_SPEED, velocity_weight)
 	velocity.x = 0.0
