@@ -1,3 +1,21 @@
 [gd_scene format=3 uid="uid://b77lie4y80eqs"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://u66nljh847vp" path="res://Scenes/col_placeholder.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://dl5ued4tbdqp" path="res://Scenes/Player.tscn" id="2_bo1nx"]
+
+[node name="Node2D" type="Node2D" unique_id=1170430213]
+
+[node name="ColPlaceholder" parent="." unique_id=520648996 instance=ExtResource("1_jjgbg")]
+position = Vector2(160.99998, 556)
+scale = Vector2(3.4162939, -2.5162616)
+
+[node name="ColPlaceholder2" parent="." unique_id=734559080 instance=ExtResource("1_jjgbg")]
+position = Vector2(649, 413)
+scale = Vector2(1.5776013, -1.3764166)
+
+[node name="ColPlaceholder3" parent="." unique_id=1363121261 instance=ExtResource("1_jjgbg")]
+position = Vector2(389, 414)
+scale = Vector2(1.5776013, -1.3764166)
+
+[node name="CharacterBody2D" parent="." unique_id=960122774 instance=ExtResource("2_bo1nx")]
+position = Vector2(55, 511)
