@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://b77lie4y80eqs"]
 
 [ext_resource type="PackedScene" uid="uid://u66nljh847vp" path="res://Scenes/col_placeholder.tscn" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://dl5ued4tbdqp" path="res://Scenes/Player.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dl5ued4tbdqp" path="res://Scenes/Player_1.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://brvabdlf0galo" path="res://Scenes/Player_2.tscn" id="3_8gbba"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
+distance = -26.0
 
 [node name="Node2D" type="Node2D" unique_id=1170430213]
 
@@ -17,5 +21,14 @@ scale = Vector2(1.5776013, -1.3764166)
 position = Vector2(389, 414)
 scale = Vector2(1.5776013, -1.3764166)
 
-[node name="CharacterBody2D" parent="." unique_id=960122774 instance=ExtResource("2_bo1nx")]
-position = Vector2(55, 511)
+[node name="Player_1" parent="." unique_id=960122774 instance=ExtResource("2_bo1nx")]
+position = Vector2(49, 511)
+
+[node name="Player_2" parent="." unique_id=1689809568 instance=ExtResource("3_8gbba")]
+position = Vector2(177, 506)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1512278732]
+position = Vector2(49, 511)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=692408812]
+shape = SubResource("WorldBoundaryShape2D_bo1nx")
