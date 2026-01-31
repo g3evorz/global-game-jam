@@ -175,4 +175,5 @@ one_shot = true
 autostart = true
 
 [connection signal="maskOff" from="Player_2" to="Control" method="_on_player_2_mask_off"]
+[connection signal="maskOn" from="Player_2" to="Control" method="_on_player_2_mask_on"]
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
