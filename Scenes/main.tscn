@@ -11,9 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://biwdqqreb0mt6" path="res://Assets/masksilhouette.png" id="9_ynf5e"]
 [ext_resource type="Script" uid="uid://dh8yxlp76li34" path="res://Scripts/game_manager.gd" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://cfkey1lasr8vp" path="res://Scenes/timer_control.tscn" id="11_d1ilt"]
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
-distance = -26.0
+[ext_resource type="PackedScene" uid="uid://c4gdbcn7rl7ay" path="res://Scenes/kill_zone.tscn" id="13_fdnlq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(20, 327)
@@ -76,15 +74,17 @@ position = Vector2(49, 511)
 position = Vector2(177, 506)
 item_scene = ExtResource("7_6bp64")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1512278732]
-position = Vector2(49, 511)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=692408812]
-shape = SubResource("WorldBoundaryShape2D_bo1nx")
-
 [node name="LaddderArea2d" parent="." unique_id=1906700080 instance=ExtResource("4_jjvhh")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaddderArea2d" unique_id=491399306]
+position = Vector2(266, 368)
+scale = Vector2(4.391849, 1.0906152)
+shape = SubResource("RectangleShape2D_kry3j")
+
+[node name="LaddderArea2d2" parent="." unique_id=668812174 instance=ExtResource("4_jjvhh")]
+position = Vector2(388, -132)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LaddderArea2d2" unique_id=531942511]
 position = Vector2(266, 368)
 scale = Vector2(4.391849, 1.0906152)
 shape = SubResource("RectangleShape2D_kry3j")
@@ -173,6 +173,9 @@ layout_mode = 2
 wait_time = 60.0
 one_shot = true
 autostart = true
+
+[node name="kill_zone" parent="." unique_id=851107442 instance=ExtResource("13_fdnlq")]
+position = Vector2(403, 597)
 
 [connection signal="maskOff" from="Player_2" to="Control" method="_on_player_2_mask_off"]
 [connection signal="maskOn" from="Player_2" to="Control" method="_on_player_2_mask_on"]
