@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dh8yxlp76li34" path="res://Scripts/game_manager.gd" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://cfkey1lasr8vp" path="res://Scenes/timer_control.tscn" id="11_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://c4gdbcn7rl7ay" path="res://Scenes/kill_zone.tscn" id="13_fdnlq"]
+[ext_resource type="PackedScene" uid="uid://d0dqk8xoi20n4" path="res://Scenes/finish_zone.tscn" id="14_jkdf5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(20, 327)
@@ -176,6 +177,9 @@ autostart = true
 
 [node name="kill_zone" parent="." unique_id=851107442 instance=ExtResource("13_fdnlq")]
 position = Vector2(403, 597)
+
+[node name="finish_zone" parent="." unique_id=542659299 instance=ExtResource("14_jkdf5")]
+position = Vector2(111, 515)
 
 [connection signal="maskOff" from="Player_2" to="Control" method="_on_player_2_mask_off"]
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]

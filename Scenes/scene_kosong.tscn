@@ -1,3 +1,48 @@
 [gd_scene format=3 uid="uid://bcih26dg86inw"]
 
-[node name="Node2D" type="Node2D" unique_id=1827676545]
+[ext_resource type="Script" uid="uid://ds210538bder2" path="res://Scripts/scene_kosong.gd" id="1_muqp8"]
+
+[node name="SceneKosong" type="Control" unique_id=1401004794]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 571.0
+offset_top = 325.0
+offset_right = 611.0
+offset_bottom = 365.0
+script = ExtResource("1_muqp8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1861813106]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=946926413]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -204.0
+offset_top = -336.0
+offset_right = 370.0
+offset_bottom = -118.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=886158793]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "CREDIT"
+
+[node name="BackToMenuButton" type="Button" parent="." unique_id=38028917]
+layout_mode = 0
+offset_left = -282.0
+offset_top = 31.0
+offset_right = 292.0
+offset_bottom = 108.0
+theme_override_font_sizes/font_size = 50
+text = "BACK TO MENU
+"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1029646421]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1167530224]
+
+[connection signal="pressed" from="BackToMenuButton" to="." method="_on_retry_button_pressed"]
