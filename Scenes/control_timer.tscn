@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://b1rypnmyseibc"]
+
+[ext_resource type="Texture2D" uid="uid://6h1leoblr3b" path="res://icon.svg" id="1_s2k3p"]
+
+[node name="ControlTimer" type="Control" unique_id=90836960]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="." unique_id=955019384]
+layout_mode = 0
+offset_left = 51.0
+offset_right = 101.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 46
+text = "0"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=283824267]
+position = Vector2(15, 34)
+scale = Vector2(0.3600015, 0.32000005)
+texture = ExtResource("1_s2k3p")
