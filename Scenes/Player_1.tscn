@@ -1,13 +1,14 @@
 [gd_scene format=3 uid="uid://dl5ued4tbdqp"]
 
-[ext_resource type="Script" uid="uid://btipd6bbc0g1m" path="res://Scripts/Player_1.gd" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://btipd6bbc0g1m" path="res://Scripts/player_1.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://6h1leoblr3b" path="res://icon.svg" id="1_rpqav"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbkls"]
 radius = 14.0
 height = 48.0
 
-[node name="Player_1" type="CharacterBody2D" unique_id=960122774]
+[node name="Player_1" type="CharacterBody2D" unique_id=122645840]
+z_index = 1
 script = ExtResource("1_kyqiw")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1476258077]
@@ -24,4 +25,3 @@ target_position = Vector2(0, 5.5)
 collision_mask = 65535
 hit_from_inside = true
 collide_with_areas = true
-collide_with_bodies = false

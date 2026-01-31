@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dl5ued4tbdqp" path="res://Scenes/Player_1.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://brvabdlf0galo" path="res://Scenes/Player_2.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cypgstlswfr6h" path="res://Scenes/LaddderArea2D.tscn" id="4_jjvhh"]
+[ext_resource type="Script" uid="uid://d2oshpl5310mu" path="res://Scripts/chain.gd" id="5_kry3j"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
 distance = -26.0
@@ -43,3 +44,11 @@ shape = SubResource("WorldBoundaryShape2D_bo1nx")
 position = Vector2(266, 368)
 scale = Vector2(4.391849, 1.0906152)
 shape = SubResource("RectangleShape2D_kry3j")
+
+[node name="ChainManager" type="Node2D" parent="." unique_id=440691254 node_paths=PackedStringArray("player1", "player2")]
+script = ExtResource("5_kry3j")
+player1 = NodePath("../Player_1")
+player2 = NodePath("../Player_2")
+max_chain_length = 200.0
+sag_amount = 30.0
+chain_segments = 10
