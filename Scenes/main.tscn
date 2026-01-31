@@ -6,6 +6,16 @@
 [ext_resource type="PackedScene" uid="uid://brvabdlf0galo" path="res://Scenes/Player_2.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cypgstlswfr6h" path="res://Scenes/LaddderArea2D.tscn" id="4_jjvhh"]
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
+=======
+[ext_resource type="Script" uid="uid://d2oshpl5310mu" path="res://Scripts/chain.gd" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://drmnebmex6guc" path="res://Scripts/main_ui.gd" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://bd1wnwb5v5t2j" path="res://Scenes/mask_drop.tscn" id="7_6bp64"]
+[ext_resource type="Texture2D" uid="uid://cingpsclfm4t0" path="res://Assets/mask.png" id="8_344ge"]
+[ext_resource type="Texture2D" uid="uid://biwdqqreb0mt6" path="res://Assets/masksilhouette.png" id="9_ynf5e"]
+[ext_resource type="Script" uid="uid://dh8yxlp76li34" path="res://Scripts/game_manager.gd" id="10_hptm8"]
+[ext_resource type="PackedScene" uid="uid://cfkey1lasr8vp" path="res://Scenes/timer_control.tscn" id="11_d1ilt"]
+>>>>>>> Stashed changes
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
 distance = -26.0
@@ -146,3 +156,56 @@ script = ExtResource("9_ynf5e")
 [connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
 [connection signal="body_entered" from="window_zone" to="window_zone" method="_on_body_entered"]
 
+<<<<<<< Updated upstream
+=======
+[node name="MarginContainer" type="MarginContainer" parent="Control/Panel" unique_id=1329868239]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 25
+
+[node name="MaskOn" type="TextureRect" parent="Control/Panel/MarginContainer" unique_id=125533577]
+layout_mode = 2
+texture = ExtResource("8_344ge")
+expand_mode = 1
+
+[node name="MaskOff" type="TextureRect" parent="Control/Panel/MarginContainer" unique_id=7443285]
+layout_mode = 2
+texture = ExtResource("9_ynf5e")
+expand_mode = 1
+
+[node name="GameManager" type="Node" parent="." unique_id=1832831157]
+script = ExtResource("10_hptm8")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=85624876]
+
+[node name="ControlUI" type="Control" parent="CanvasLayer" unique_id=495402910]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ControlUI" unique_id=1904658685]
+layout_mode = 0
+offset_left = 96.0
+offset_top = 6.0
+offset_right = 136.0
+offset_bottom = 46.0
+
+[node name="TimerControl" parent="CanvasLayer/ControlUI/VBoxContainer" unique_id=1795390018 instance=ExtResource("11_d1ilt")]
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="." unique_id=350582428]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[connection signal="maskOff" from="Player_2" to="Control" method="_on_player_2_mask_off"]
+[connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
+>>>>>>> Stashed changes
