@@ -6,9 +6,6 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY: float  = -400.0
 @export var ACCELERATION: float  = 8.0
 @export var FRICTION: float = 14.5
-
-
-
 var on_ladder: bool = false
 
 
