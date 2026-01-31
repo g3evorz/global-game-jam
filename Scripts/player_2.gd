@@ -99,6 +99,15 @@ func ladder_movement(delta: float):
 	velocity.y = lerp(velocity.y, y_input * MAX_SPEED, velocity_weight)
 	velocity.x = 0.0
 	$Sprite2D.rotation_degrees = lerp($Sprite2D.rotation_degrees, 0.0, 16.5 * delta)
+	
+	if abs(y_input) > 0.1:
+		if sprite.animation != "Climb":
+			sprite.play("Climb")
+		elif not sprite.is_playing():
+			sprite.play()
+	else:
+		if sprite.animation == "Climb":
+			sprite.pause()	
 
 func _on_drop_timer_timeout():
 	drop_item()
@@ -111,7 +120,6 @@ func drop_item():
 	item.global_position = global_position + drop_offset
 	
 	maskOff.emit()
-	
 	item.item_destroyed.connect(_on_item_destroyed)
 	get_parent().add_child(item)
 	can_move = false
