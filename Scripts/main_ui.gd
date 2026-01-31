@@ -14,3 +14,7 @@ func _ready() -> void:
 	
 func _on_player_2_mask_off() -> void:
 	maskOff.show()
+
+
+func _on_player_2_mask_on() -> void:
+	maskOff.hide()
