@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+signal maskOff
 
 @export var SPEED: float  = 300.0
 @export var MAX_SPEED: float  = 300.0
@@ -77,6 +78,8 @@ func drop_item():
 		return
 	var item = item_scene.instantiate()
 	item.global_position = global_position + drop_offset
+	
+	maskOff.emit()
 	
 	item.item_destroyed.connect(_on_item_destroyed)
 	get_parent().add_child(item)
