@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cfkey1lasr8vp"]
+
+[ext_resource type="Texture2D" uid="uid://6h1leoblr3b" path="res://icon.svg" id="1_fetqk"]
+
+[node name="TimerControl" type="Control" unique_id=1795390018]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Countdown" type="Label" parent="." unique_id=862736064]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 18.0
+offset_right = 69.0
+offset_bottom = 87.0
+theme_override_font_sizes/font_size = 50
+text = "0"
+
+[node name="IconCountdown" type="Sprite2D" parent="." unique_id=1536035316]
+position = Vector2(-32, 57)
+scale = Vector2(0.505, 0.505)
+texture = ExtResource("1_fetqk")
