@@ -8,6 +8,7 @@ radius = 14.0
 height = 48.0
 
 [node name="Player_2" type="CharacterBody2D" unique_id=960122774]
+collision_layer = 2
 script = ExtResource("1_iqhtf")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1476258077]

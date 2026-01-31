@@ -7,26 +7,39 @@ extends CharacterBody2D
 @export var ACCELERATION: float  = 8.0
 @export var FRICTION: float = 14.5
 
-
+@export var item_scene: PackedScene
+@export var drop_interval: float = 15.0
+var drop_offset: Vector2 = Vector2(0, 50)
+var drop_timer: Timer
 
 var on_ladder: bool = false
+var can_move: bool = true
 
+func _ready() -> void:
+	drop_timer = Timer.new()
+	drop_timer.wait_time = drop_interval
+	drop_timer.autostart = true
+	drop_timer.timeout.connect(_on_drop_timer_timeout)
+	add_child(drop_timer)
 
 func _physics_process(delta: float) -> void:
 	_ladder_detect()
-	if on_ladder:
-		ladder_movement(delta)
+	if can_move:
+		if on_ladder:
+			ladder_movement(delta)
+		else:
+			movement(delta)
 	else:
-		movement(delta) 
+		if not is_on_floor() and not on_ladder:
+			velocity += get_gravity() * delta
+		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
-func movement(delta: float) -> void:
 	
-	# Add the gravity.
+func movement(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle jump.
+	
 	if Input.is_action_just_pressed("Jump_2") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
@@ -55,4 +68,22 @@ func ladder_movement(delta: float):
 	velocity.y = lerp(velocity.y, y_input * MAX_SPEED, velocity_weight)
 	velocity.x = 0.0
 	$Sprite2D.rotation_degrees = lerp($Sprite2D.rotation_degrees, 0.0, 16.5 * delta)
+	
+func _on_drop_timer_timeout():
+	drop_item()
+	
+func drop_item():
+	if not item_scene:
+		return
+	var item = item_scene.instantiate()
+	item.global_position = global_position + drop_offset
+	
+	item.item_destroyed.connect(_on_item_destroyed)
+	get_parent().add_child(item)
+	can_move = false
+	print("item dropped")
+	
+func _on_item_destroyed():
+	can_move = true
+	
 	
