@@ -104,6 +104,7 @@ offset_bottom = 648.0
 script = ExtResource("6_21xkr")
 
 [node name="ColorRect" type="ColorRect" parent="Control" unique_id=1094189544]
+visible = false
 layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 648.0
@@ -146,3 +147,4 @@ texture = ExtResource("9_ynf5e")
 expand_mode = 1
 
 [connection signal="maskOff" from="Player_2" to="Control" method="_on_player_2_mask_off"]
+[connection signal="maskOn" from="Player_2" to="Control" method="_on_player_2_mask_on"]

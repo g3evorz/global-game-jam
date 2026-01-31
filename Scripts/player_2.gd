@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 signal maskOff
+signal maskOn
 
 @export var SPEED: float  = 300.0
 @export var MAX_SPEED: float  = 300.0
@@ -87,6 +88,7 @@ func drop_item():
 	print("item dropped")
 	
 func _on_item_destroyed():
+	maskOn.emit()
 	can_move = true
 	
 	
