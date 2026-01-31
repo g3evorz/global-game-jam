@@ -15,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://biwdqqreb0mt6" path="res://Assets/masksilhouette.png" id="9_ynf5e"]
 [ext_resource type="Script" uid="uid://dh8yxlp76li34" path="res://Scripts/game_manager.gd" id="10_hptm8"]
 [ext_resource type="PackedScene" uid="uid://cfkey1lasr8vp" path="res://Scenes/timer_control.tscn" id="11_d1ilt"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
@@ -208,4 +211,7 @@ autostart = true
 
 [connection signal="maskOff" from="Player_2" to="Control" method="_on_player_2_mask_off"]
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
