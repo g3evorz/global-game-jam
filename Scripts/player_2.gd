@@ -16,6 +16,7 @@ var drop_timer: Timer
 var on_ladder: bool = false
 var can_move: bool = true
 var is_jumping: bool = false
+var is_dropping_item: bool = false
 
 func _ready() -> void:
 	sprite.play("Idle")
@@ -38,6 +39,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if sprite.animation != "Idle":
 			sprite.play("Idle")
+		if not is_dropping_item:
+			if sprite.animation != "Idle":
+				sprite.play("Idle")
 	
 	move_and_slide()
 
@@ -111,8 +115,11 @@ func drop_item():
 	item.item_destroyed.connect(_on_item_destroyed)
 	get_parent().add_child(item)
 	can_move = false
+	is_dropping_item = true
+	sprite.play("Reog")
 	print("item dropped")
 
 func _on_item_destroyed():
 	maskOn.emit()
 	can_move = true
+	sprite.play("Idle")
