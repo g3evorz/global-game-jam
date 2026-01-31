@@ -4,9 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://dl5ued4tbdqp" path="res://Scenes/Player_1.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://brvabdlf0galo" path="res://Scenes/Player_2.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cypgstlswfr6h" path="res://Scenes/LaddderArea2D.tscn" id="4_jjvhh"]
+<<<<<<< Updated upstream
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
 distance = -26.0
+=======
+[ext_resource type="Script" uid="uid://d2oshpl5310mu" path="res://Scripts/chain.gd" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://dh8yxlp76li34" path="res://Scripts/game_manager.gd" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://c4gdbcn7rl7ay" path="res://Scenes/kill_zone.tscn" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://cvk1j7fuhjkwr" path="res://Scenes/window_zone.tscn" id="8_344ge"]
+[ext_resource type="Script" uid="uid://b1mgd3h6fo5kf" path="res://window_zone.gd" id="9_ynf5e"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(20, 327)
@@ -31,15 +39,33 @@ position = Vector2(49, 511)
 [node name="Player_2" parent="." unique_id=1689809568 instance=ExtResource("3_8gbba")]
 position = Vector2(177, 506)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1512278732]
-position = Vector2(49, 511)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=692408812]
-shape = SubResource("WorldBoundaryShape2D_bo1nx")
-
 [node name="LaddderArea2d" parent="." unique_id=1906700080 instance=ExtResource("4_jjvhh")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaddderArea2d" unique_id=491399306]
 position = Vector2(266, 368)
 scale = Vector2(4.391849, 1.0906152)
 shape = SubResource("RectangleShape2D_kry3j")
+<<<<<<< Updated upstream
+=======
+
+[node name="ChainManager" type="Node2D" parent="." unique_id=440691254 node_paths=PackedStringArray("player1", "player2")]
+script = ExtResource("5_kry3j")
+player1 = NodePath("../Player_1")
+player2 = NodePath("../Player_2")
+max_chain_length = 200.0
+sag_amount = 30.0
+chain_segments = 10
+
+[node name="GameManager" type="Node" parent="." unique_id=2074304177]
+script = ExtResource("6_21xkr")
+
+[node name="KillZone" parent="." unique_id=211852437 instance=ExtResource("7_6bp64")]
+position = Vector2(415, 589)
+
+[node name="window_zone" parent="." unique_id=1522026623 instance=ExtResource("8_344ge")]
+position = Vector2(150, 372)
+script = ExtResource("9_ynf5e")
+
+[connection signal="body_entered" from="KillZone" to="KillZone" method="_on_body_entered"]
+[connection signal="body_entered" from="window_zone" to="window_zone" method="_on_body_entered"]
+>>>>>>> Stashed changes

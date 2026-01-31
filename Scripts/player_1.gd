@@ -39,7 +39,6 @@ func movement(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED) 
 func _ladder_detect():
 	if $LadderDetectRay.is_colliding() and !is_on_floor():
-		print("kedetect")
 		if Input.is_action_pressed("up_1") or Input.is_action_pressed("down_1"):
 			on_ladder = true
 			
