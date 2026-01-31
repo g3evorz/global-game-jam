@@ -11,8 +11,11 @@ extends CharacterBody2D
 
 var on_ladder: bool = false
 
+func  game_over() :
+	get_tree().change_scene_to_file("res://Scenes/game_over.tscn")
 
 func _physics_process(delta: float) -> void:
+	_fan_detect()
 	_ladder_detect()
 	if on_ladder:
 		ladder_movement(delta)
@@ -56,3 +59,9 @@ func ladder_movement(delta: float):
 	velocity.x = 0.0
 	$Sprite2D.rotation_degrees = lerp($Sprite2D.rotation_degrees, 0.0, 16.5 * delta)
 	
+func _fan_detect():
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		
+		if collision.get_collider().name == "TileMapKipas":
+			game_over()

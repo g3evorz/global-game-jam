@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://b77lie4y80eqs"]
 
+[ext_resource type="Script" uid="uid://dh8yxlp76li34" path="res://Scripts/game_manager.gd" id="1_hptm8"]
 [ext_resource type="PackedScene" uid="uid://u66nljh847vp" path="res://Scenes/col_placeholder.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dl5ued4tbdqp" path="res://Scenes/Player_1.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://brvabdlf0galo" path="res://Scenes/Player_2.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cypgstlswfr6h" path="res://Scenes/LaddderArea2D.tscn" id="4_jjvhh"]
+<<<<<<< Updated upstream
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_bo1nx"]
 distance = -26.0
@@ -14,9 +16,26 @@ distance = -26.0
 [ext_resource type="PackedScene" uid="uid://cvk1j7fuhjkwr" path="res://Scenes/window_zone.tscn" id="8_344ge"]
 [ext_resource type="Script" uid="uid://b1mgd3h6fo5kf" path="res://window_zone.gd" id="9_ynf5e"]
 
+=======
+[ext_resource type="Script" uid="uid://d2oshpl5310mu" path="res://Scripts/chain.gd" id="5_kry3j"]
+[ext_resource type="Script" uid="uid://drmnebmex6guc" path="res://Scripts/main_ui.gd" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://c4gdbcn7rl7ay" path="res://Scenes/kill_zone.tscn" id="7_344ge"]
+[ext_resource type="PackedScene" uid="uid://cvk1j7fuhjkwr" path="res://Scenes/window_zone.tscn" id="8_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://6h1leoblr3b" path="res://icon.svg" id="9_ynf5e"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kry3j"]
 size = Vector2(20, 327)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hptm8"]
+texture = ExtResource("9_ynf5e")
+0:0/size_in_atlas = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-49.03581, -26.997242, -9.366386, -44.07713, 26.997246, -41.873272, 42.42424, -14.325066, 41.32231, 30.303032, -41.873276, 38.567497)
+
+[sub_resource type="TileSet" id="TileSet_d1ilt"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_hptm8")
 
 [sub_resource type="Animation" id="Animation_21xkr"]
 length = 0.001
@@ -56,6 +75,9 @@ _data = {
 
 [node name="Main" type="Node2D" unique_id=1170430213]
 
+[node name="GameManager" type="Node" parent="." unique_id=45336951]
+script = ExtResource("1_hptm8")
+
 [node name="ColPlaceholder" parent="." unique_id=520648996 instance=ExtResource("1_jjgbg")]
 position = Vector2(160.99998, 556)
 scale = Vector2(3.4162939, -2.5162616)
@@ -76,6 +98,8 @@ position = Vector2(49, 511)
 position = Vector2(177, 506)
 
 [node name="LaddderArea2d" parent="." unique_id=1906700080 instance=ExtResource("4_jjvhh")]
+position = Vector2(2, 148)
+scale = Vector2(1, 0.735)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LaddderArea2d" unique_id=491399306]
 position = Vector2(266, 368)
@@ -90,7 +114,26 @@ max_chain_length = 200.0
 sag_amount = 30.0
 chain_segments = 10
 
+<<<<<<< Updated upstream
 [node name="GameManager" type="Node" parent="." unique_id=2074304177]
+=======
+[node name="KillZone" parent="." unique_id=211852437 instance=ExtResource("7_344ge")]
+position = Vector2(405, 596)
+
+[node name="WindowZone" parent="." unique_id=468255161 instance=ExtResource("8_ynf5e")]
+position = Vector2(136, 388)
+
+[node name="TileMapKipas" type="TileMapLayer" parent="." unique_id=1918480317]
+tile_set = SubResource("TileSet_d1ilt")
+
+[node name="Control" type="Control" parent="." unique_id=7466575]
+visible = false
+z_index = 10
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+>>>>>>> Stashed changes
 script = ExtResource("6_21xkr")
 
 [node name="KillZone" parent="." unique_id=211852437 instance=ExtResource("7_6bp64")]
