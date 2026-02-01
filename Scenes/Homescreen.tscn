@@ -1,6 +1,16 @@
 [gd_scene format=3 uid="uid://dxxj3ifibr1l5"]
 
 [ext_resource type="Script" uid="uid://cej73v6jyq3sr" path="res://Scripts/homescreen.gd" id="1_s2xo7"]
+[ext_resource type="Texture2D" uid="uid://btr4x45gbv7oi" path="res://Assets/UI/Start_20260131233906.png" id="2_66nmt"]
+[ext_resource type="Texture2D" uid="uid://de16ntc8wfp2n" path="res://Assets/UI/Start_20260131233912.png" id="3_egl2g"]
+[ext_resource type="Texture2D" uid="uid://b7g3t0q54hdt2" path="res://Assets/UI/Start_Hover.png" id="4_2mfq6"]
+[ext_resource type="Texture2D" uid="uid://b5vw4c7ilf8an" path="res://Assets/UI/Credits_20260131233946.png" id="4_taxsp"]
+[ext_resource type="Texture2D" uid="uid://bhq1ljpjk5v42" path="res://Assets/UI/Credits_20260131233951.png" id="5_2mfq6"]
+[ext_resource type="Texture2D" uid="uid://dmmgntjrakmi5" path="res://Assets/UI/Exit_20260131233922.png" id="6_dnlye"]
+[ext_resource type="Texture2D" uid="uid://ccb2efxdtiora" path="res://Assets/UI/Exit_20260131233925.png" id="7_6f7lb"]
+[ext_resource type="Texture2D" uid="uid://dy7jergcm8r5o" path="res://Assets/UI/Credits_hover.png" id="7_dnlye"]
+[ext_resource type="Texture2D" uid="uid://byvcopkjx2rfx" path="res://Assets/UI/Exit_hover.png" id="10_6f7lb"]
+[ext_resource type="Texture2D" uid="uid://c7saiglxncru3" path="res://Assets/UI/Title (1).png" id="11_dnlye"]
 
 [sub_resource type="Animation" id="Animation_s2xo7"]
 length = 0.001
@@ -60,29 +70,52 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -74.0
-offset_right = 200.0
-offset_bottom = 136.0
+offset_left = -496.5
+offset_top = -206.0
+offset_right = 83.5
+offset_bottom = 1294.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 30
+scale = Vector2(0.3, 0.3)
 
-[node name="Start" type="Button" parent="VBoxContainer" unique_id=566047264]
+[node name="Start" type="TextureButton" parent="VBoxContainer" unique_id=821230605]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 action_mode = 0
-text = "START GAME"
+texture_normal = ExtResource("2_66nmt")
+texture_pressed = ExtResource("3_egl2g")
+texture_hover = ExtResource("4_2mfq6")
+stretch_mode = 4
 
-[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1787736919]
+[node name="Credits" type="TextureButton" parent="VBoxContainer" unique_id=1218258175]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "CREDITS"
+texture_normal = ExtResource("4_taxsp")
+texture_pressed = ExtResource("5_2mfq6")
+texture_hover = ExtResource("7_dnlye")
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=239184992]
+[node name="Quit" type="TextureButton" parent="VBoxContainer" unique_id=974567611]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-text = "QUIT GAME"
+texture_normal = ExtResource("6_dnlye")
+texture_pressed = ExtResource("7_6f7lb")
+texture_hover = ExtResource("10_6f7lb")
+
+[node name="Panel" type="TextureRect" parent="." unique_id=172016067]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -355.99994
+offset_top = -624.0
+offset_right = 412.0
+offset_bottom = 6.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(0.45, 0.45)
+texture = ExtResource("11_dnlye")
 
 [node name="FadeSet" type="ColorRect" parent="." unique_id=213686879]
 layout_mode = 0

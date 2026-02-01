@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cfkey1lasr8vp"]
 
-[ext_resource type="Texture2D" uid="uid://6h1leoblr3b" path="res://icon.svg" id="1_fetqk"]
+[ext_resource type="Texture2D" uid="uid://kf4pq3dpkwve" path="res://Assets/UI/Sun_20260201072903.png" id="1_fetqk"]
 
 [node name="TimerControl" type="Control" unique_id=1795390018]
 layout_mode = 3
@@ -19,5 +19,5 @@ text = "0"
 
 [node name="IconCountdown" type="Sprite2D" parent="." unique_id=1536035316]
 position = Vector2(-32, 57)
-scale = Vector2(0.505, 0.505)
+scale = Vector2(0.3, 0.3)
 texture = ExtResource("1_fetqk")

@@ -16,7 +16,7 @@ var drop_timer: Timer
 var on_ladder: bool = false
 var can_move: bool = true
 var is_jumping: bool = false
-var is_dropping_item: bool = false
+var is_dropping_item: bool = false  # ← This flag exists but you're not using it!
 
 func _ready() -> void:
 	sprite.play("Idle")
@@ -28,20 +28,23 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	_ladder_detect()
+	
 	if can_move:
 		if on_ladder:
 			ladder_movement(delta)
 		else:
 			movement(delta)
 	else:
+		# Player is frozen
 		if not is_on_floor() and not on_ladder:
 			velocity += get_gravity() * delta
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		if sprite.animation != "Idle":
-			sprite.play("Idle")
+		
+		# FIX: Only play Idle if NOT dropping item
 		if not is_dropping_item:
 			if sprite.animation != "Idle":
 				sprite.play("Idle")
+		# When dropping item, "Reog" animation should keep playing
 	
 	move_and_slide()
 
@@ -49,15 +52,13 @@ func movement(delta: float) -> void:
 	if is_on_floor() and is_jumping:
 		is_jumping = false
 	
-	# Apply gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 	
 	if Input.is_action_just_pressed("Jump_2") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		is_jumping = true  
+		is_jumping = true
 		sprite.play("Jump")
-		print("Jumped!")
 	
 	var direction := Input.get_axis("Left_2", "Right_2")
 	
@@ -66,7 +67,7 @@ func movement(delta: float) -> void:
 		sprite.flip_h = direction < 0
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
 	update_animation()
 
 func update_animation():
@@ -84,7 +85,7 @@ func _ladder_detect():
 	if $LadderDetectRay.is_colliding() and !is_on_floor():
 		if Input.is_action_pressed("up_2") or Input.is_action_pressed("down_2"):
 			on_ladder = true
-			is_jumping = false  # Reset jump flag on ladder
+			is_jumping = false
 			
 			var desired_x_pos: float = $LadderDetectRay.get_collider().get_child($LadderDetectRay.get_collider_shape()).global_position.x
 			if global_position.x != desired_x_pos:
@@ -107,7 +108,7 @@ func ladder_movement(delta: float):
 			sprite.play()
 	else:
 		if sprite.animation == "Climb":
-			sprite.pause()	
+			sprite.pause()
 
 func _on_drop_timer_timeout():
 	drop_item()
@@ -120,14 +121,18 @@ func drop_item():
 	item.global_position = global_position + drop_offset
 	
 	maskOff.emit()
+	
 	item.item_destroyed.connect(_on_item_destroyed)
 	get_parent().add_child(item)
+	
 	can_move = false
-	is_dropping_item = true
+	is_dropping_item = true  # ← Set this BEFORE playing animation
 	sprite.play("Reog")
-	print("item dropped")
+	print("Item dropped - playing Reog animation")
 
 func _on_item_destroyed():
 	maskOn.emit()
 	can_move = true
+	is_dropping_item = false  # ← Reset flag
 	sprite.play("Idle")
+	print("Item destroyed - back to Idle")

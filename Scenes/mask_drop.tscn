@@ -8,8 +8,10 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_w7fds"]
 radius = 11.0
 
-[node name="MaskDrop" type="RigidBody2D" unique_id=483263141]
+[node name="MaskDrop" type="RigidBody2D" unique_id=483263141 groups=["mask", "mask_item"]]
 collision_layer = 4
+collision_mask = 5
+gravity_scale = 0.3
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_pb8yt")
