@@ -1,6 +1,5 @@
 [gd_scene format=4 uid="uid://b77lie4y80eqs"]
 
-[ext_resource type="PackedScene" uid="uid://u66nljh847vp" path="res://Scenes/col_placeholder.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dl5ued4tbdqp" path="res://Scenes/Player_1.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://brvabdlf0galo" path="res://Scenes/Player_2.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://cypgstlswfr6h" path="res://Scenes/LaddderArea2D.tscn" id="4_jjvhh"]
@@ -340,18 +339,22 @@ offset_right = 1155.0
 offset_bottom = 659.0
 color = Color(0, 0, 0, 0.4862745)
 
-[node name="PauseContainer" type="VBoxContainer" parent="PauseMenuLayer" unique_id=1874897064]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -129.0
-offset_top = 53.0
-offset_right = 143.0
-offset_bottom = 348.0
-grow_horizontal = 2
+[node name="PuaseLabel2" type="Label" parent="PauseMenuLayer" unique_id=709195880]
+modulate = Color(0.85882354, 0.14509805, 0.33333334, 1)
+offset_left = 442.0
+offset_top = 83.0
+offset_right = 714.0
+offset_bottom = 378.0
+theme_override_fonts/font = ExtResource("25_6vcvc")
+theme_override_font_sizes/font_size = 137
+text = "PAUSE
+"
 
-[node name="PuaseLabel" type="Label" parent="PauseMenuLayer/PauseContainer" unique_id=509222931]
-layout_mode = 2
+[node name="PuaseLabel" type="Label" parent="PauseMenuLayer" unique_id=509222931]
+offset_left = 451.0
+offset_top = 69.0
+offset_right = 723.0
+offset_bottom = 364.0
 theme_override_fonts/font = ExtResource("25_6vcvc")
 theme_override_font_sizes/font_size = 137
 text = "PAUSE
