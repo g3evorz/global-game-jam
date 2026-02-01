@@ -1,20 +1,73 @@
 [gd_scene format=3 uid="uid://dl5ued4tbdqp"]
 
 [ext_resource type="Script" uid="uid://3phrsbje1auh" path="res://Scripts/player_1.gd" id="1_kyqiw"]
-[ext_resource type="Texture2D" uid="uid://6h1leoblr3b" path="res://icon.svg" id="1_rpqav"]
+[ext_resource type="Texture2D" uid="uid://cfhsv62d8vvwf" path="res://Assets/mc/climb1.png" id="2_701bs"]
+[ext_resource type="Texture2D" uid="uid://kry355e47xla" path="res://Assets/mc/climb2.png" id="3_xc2ir"]
+[ext_resource type="Texture2D" uid="uid://5ma7sg0apthw" path="res://Assets/mc/walk1.png" id="4_ssvdc"]
+[ext_resource type="Texture2D" uid="uid://bj1rpe31dnh75" path="res://Assets/mc/walk2.png" id="5_dxh8r"]
+[ext_resource type="Texture2D" uid="uid://bkdj5pprmnr5e" path="res://Assets/mc/walk3.png" id="6_ibpet"]
+[ext_resource type="Texture2D" uid="uid://majrciul5pgr" path="res://Assets/mc/walk4.png" id="7_2p0e2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_55w4q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_701bs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xc2ir")
+}],
+"loop": true,
+"name": &"Climb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ssvdc")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ssvdc")
+}],
+"loop": true,
+"name": &"Jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_ssvdc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_dxh8r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ibpet")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2p0e2")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 5.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qbkls"]
 radius = 14.0
-height = 48.0
+height = 96.0
 
 [node name="Player_1" type="CharacterBody2D" unique_id=122645840 groups=["player"]]
 z_index = 1
 collision_layer = 2
 script = ExtResource("1_kyqiw")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1476258077]
-scale = Vector2(0.3808594, 0.3808594)
-texture = ExtResource("1_rpqav")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1009595092]
+scale = Vector2(0.15, 0.15)
+sprite_frames = SubResource("SpriteFrames_55w4q")
+animation = &"Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912313588]
 shape = SubResource("CapsuleShape2D_qbkls")
@@ -22,7 +75,7 @@ shape = SubResource("CapsuleShape2D_qbkls")
 [node name="LadderDetectRay" type="RayCast2D" parent="." unique_id=395513393]
 position = Vector2(0, -1.75)
 scale = Vector2(13.794852, 5.168)
-target_position = Vector2(0, 5.5)
+target_position = Vector2(0, 10.207042)
 collision_mask = 65535
 hit_from_inside = true
 collide_with_areas = true
