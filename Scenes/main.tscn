@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dq2hbsnhen1yu" path="res://Assets/wall.png" id="12_jkdf5"]
 [ext_resource type="PackedScene" uid="uid://c4gdbcn7rl7ay" path="res://Scenes/kill_zone.tscn" id="13_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://ckclls1bkwbn" path="res://Assets/wallline.png" id="13_wsu2k"]
-[ext_resource type="PackedScene" path="res://Scenes/finish_zone.tscn" id="14_jkdf5"]
+[ext_resource type="PackedScene" uid="uid://d0dqk8xoi20n4" path="res://Scenes/finish_zone.tscn" id="14_jkdf5"]
 [ext_resource type="Texture2D" uid="uid://cj3i27ltfwuf4" path="res://Assets/ladder.png" id="14_k12tt"]
 [ext_resource type="Texture2D" uid="uid://djj53k1a0v210" path="res://Assets/windowopen1.png" id="16_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://da22ika3pa3tn" path="res://Assets/windowgatau.png" id="16_k12tt"]
@@ -23,6 +23,12 @@
 [ext_resource type="Texture2D" uid="uid://bjbrqtsoenoth" path="res://Assets/jendela.png" id="19_3pmx8"]
 [ext_resource type="AudioStream" uid="uid://hy54y4mtp87q" path="res://Assets/Gila alt.wav" id="22_gt3je"]
 [ext_resource type="Script" uid="uid://cuo2lts3dxnwt" path="res://Scripts/bgmmanager.gd" id="23_gt3je"]
+[ext_resource type="Script" uid="uid://c5mcmilldmaxc" path="res://Scripts/pause_menu_layer.gd" id="24_3pmx8"]
+[ext_resource type="FontFile" uid="uid://bb4l0e6tlofij" path="res://Assets/Font/Bangers.ttf" id="25_6vcvc"]
+[ext_resource type="Texture2D" uid="uid://rmnvvpoo3jvr" path="res://Assets/UI/Resume_20260201104251.png" id="25_cbgmd"]
+[ext_resource type="Texture2D" uid="uid://cyjgahtf4y6vk" path="res://Assets/UI/Resume_20260201104255.png" id="26_1w6v2"]
+[ext_resource type="Texture2D" uid="uid://c6usx11yvjjjd" path="res://Assets/UI/Back to Menu_20260201104306.png" id="28_7k868"]
+[ext_resource type="Texture2D" uid="uid://sukqu3htijgg" path="res://Assets/UI/Back to Menu_20260201104309.png" id="29_hpc6h"]
 
 [sub_resource type="Animation" id="Animation_21xkr"]
 length = 0.001
@@ -325,6 +331,64 @@ volume_db = 5.098
 autoplay = true
 script = ExtResource("23_gt3je")
 
+[node name="PauseMenuLayer" type="CanvasLayer" parent="." unique_id=2067592434]
+process_mode = 3
+script = ExtResource("24_3pmx8")
+
+[node name="ColorRect" type="ColorRect" parent="PauseMenuLayer" unique_id=136632168]
+offset_right = 1155.0
+offset_bottom = 659.0
+color = Color(0, 0, 0, 0.4862745)
+
+[node name="PauseContainer" type="VBoxContainer" parent="PauseMenuLayer" unique_id=1874897064]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -129.0
+offset_top = 53.0
+offset_right = 143.0
+offset_bottom = 348.0
+grow_horizontal = 2
+
+[node name="PuaseLabel" type="Label" parent="PauseMenuLayer/PauseContainer" unique_id=509222931]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("25_6vcvc")
+theme_override_font_sizes/font_size = 137
+text = "PAUSE
+"
+
+[node name="ButtonContainer" type="VBoxContainer" parent="PauseMenuLayer" unique_id=603320286]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonPanel" type="Panel" parent="PauseMenuLayer/ButtonContainer" unique_id=1008815583]
+layout_mode = 2
+
+[node name="ResumeButton" type="TextureButton" parent="PauseMenuLayer/ButtonContainer/ButtonPanel" unique_id=1515009372]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 226.0
+offset_right = 1080.0
+offset_bottom = 706.0
+scale = Vector2(0.28, 0.28)
+action_mode = 0
+texture_normal = ExtResource("25_cbgmd")
+texture_pressed = ExtResource("25_cbgmd")
+texture_hover = ExtResource("26_1w6v2")
+
+[node name="MenuButton" type="TextureButton" parent="PauseMenuLayer/ButtonContainer/ButtonPanel" unique_id=2049571259]
+layout_mode = 0
+offset_left = 475.0
+offset_top = 356.0
+offset_right = 1155.0
+offset_bottom = 836.0
+scale = Vector2(0.295, 0.295)
+texture_normal = ExtResource("28_7k868")
+texture_pressed = ExtResource("28_7k868")
+texture_hover = ExtResource("29_hpc6h")
+
 [connection signal="maskOff" from="Player_2" to="CanvasLayer/Control" method="_on_player_2_mask_off"]
 [connection signal="maskOn" from="Player_2" to="CanvasLayer/Control" method="_on_player_2_mask_on"]
 [connection signal="timeout" from="Timer" to="GameManager" method="_on_timer_timeout"]
+[connection signal="pressed" from="PauseMenuLayer/ButtonContainer/ButtonPanel/ResumeButton" to="PauseMenuLayer" method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenuLayer/ButtonContainer/ButtonPanel/MenuButton" to="PauseMenuLayer" method="_on_menu_button_pressed"]
