@@ -19,9 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://djj53k1a0v210" path="res://Assets/windowopen1.png" id="16_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://da22ika3pa3tn" path="res://Assets/windowgatau.png" id="16_k12tt"]
 [ext_resource type="Script" uid="uid://c2ap1a4yi6pa1" path="res://Scripts/camera.gd" id="17_fevyy"]
-[ext_resource type="AudioStream" uid="uid://b7l2mvx7c3lwb" path="res://Assets/Gila.wav" id="18_b3802"]
 [ext_resource type="Texture2D" uid="uid://duqokflk0ie7s" path="res://Assets/windowopen2.png" id="18_gt3je"]
 [ext_resource type="Texture2D" uid="uid://bjbrqtsoenoth" path="res://Assets/jendela.png" id="19_3pmx8"]
+[ext_resource type="AudioStream" uid="uid://hy54y4mtp87q" path="res://Assets/Gila alt.wav" id="22_gt3je"]
+[ext_resource type="Script" uid="uid://cuo2lts3dxnwt" path="res://Scripts/bgmmanager.gd" id="23_gt3je"]
 
 [sub_resource type="Animation" id="Animation_21xkr"]
 length = 0.001
@@ -318,9 +319,11 @@ scale = Vector2(0.7149525, -0.7155188)
 position = Vector2(-107, 255.99997)
 scale = Vector2(-0.5728572, 0.3738302)
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=918789792]
-stream = ExtResource("18_b3802")
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1720933729]
+stream = ExtResource("22_gt3je")
+volume_db = 5.098
 autoplay = true
+script = ExtResource("23_gt3je")
 
 [connection signal="maskOff" from="Player_2" to="CanvasLayer/Control" method="_on_player_2_mask_off"]
 [connection signal="maskOn" from="Player_2" to="CanvasLayer/Control" method="_on_player_2_mask_on"]

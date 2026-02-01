@@ -4,7 +4,7 @@ signal item_destroyed
 
 @export var pickup_time: float = 20.0
 @export var blink_start_time: float = 2.0
-
+@onready var pickup_sfx = $AudioStreamPlayer
 @onready var sprite = $Sprite2D
 @onready var timer = $PickupTimer
 @onready var area = $Area2D
@@ -46,7 +46,8 @@ func _on_area_body_entered(body):
 func pickup(player):
 	can_pickup = false
 	print("Item picked up!")
-	
+	pickup_sfx.play()
+	await pickup_sfx.finished
 	item_destroyed.emit()
 	queue_free()
 
