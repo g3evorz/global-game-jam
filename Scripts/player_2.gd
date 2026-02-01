@@ -9,6 +9,7 @@ signal maskOn
 @export var ACCELERATION: float = 8.0
 @export var FRICTION: float = 14.5
 @onready var sprite: AnimatedSprite2D = $Sprite2D
+@onready var monkeReog = $monkeReog
 @export var item_scene: PackedScene
 @export var drop_interval: float = 15.0
 var drop_offset: Vector2 = Vector2(0, 50)
@@ -16,7 +17,7 @@ var drop_timer: Timer
 var on_ladder: bool = false
 var can_move: bool = true
 var is_jumping: bool = false
-var is_dropping_item: bool = false  # ← This flag exists but you're not using it!
+var is_dropping_item: bool = false 
 
 func _ready() -> void:
 	sprite.play("Idle")
@@ -127,7 +128,9 @@ func drop_item():
 	
 	can_move = false
 	is_dropping_item = true  # ← Set this BEFORE playing animation
+	monkeReog.play()
 	sprite.play("Reog")
+	
 	print("Item dropped - playing Reog animation")
 
 func _on_item_destroyed():

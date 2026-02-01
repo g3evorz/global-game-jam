@@ -16,7 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://ckclls1bkwbn" path="res://Assets/wallline.png" id="13_wsu2k"]
 [ext_resource type="PackedScene" path="res://Scenes/finish_zone.tscn" id="14_jkdf5"]
 [ext_resource type="Texture2D" uid="uid://cj3i27ltfwuf4" path="res://Assets/ladder.png" id="14_k12tt"]
+[ext_resource type="Texture2D" uid="uid://djj53k1a0v210" path="res://Assets/windowopen1.png" id="16_ee4r6"]
 [ext_resource type="Texture2D" uid="uid://da22ika3pa3tn" path="res://Assets/windowgatau.png" id="16_k12tt"]
+[ext_resource type="Script" uid="uid://c2ap1a4yi6pa1" path="res://Scripts/camera.gd" id="17_fevyy"]
+[ext_resource type="AudioStream" uid="uid://b7l2mvx7c3lwb" path="res://Assets/Gila.wav" id="18_b3802"]
+[ext_resource type="Texture2D" uid="uid://duqokflk0ie7s" path="res://Assets/windowopen2.png" id="18_gt3je"]
+[ext_resource type="Texture2D" uid="uid://bjbrqtsoenoth" path="res://Assets/jendela.png" id="19_3pmx8"]
 
 [sub_resource type="Animation" id="Animation_21xkr"]
 length = 0.001
@@ -57,7 +62,6 @@ _data = {
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1bgf"]
 texture = ExtResource("12_jkdf5")
 texture_region_size = Vector2i(128, 128)
-4:0/size_in_atlas = Vector2i(3, 3)
 4:0/0 = 0
 2:0/size_in_atlas = Vector2i(2, 2)
 2:0/0 = 0
@@ -121,23 +125,41 @@ texture_region_size = Vector2i(128, 128)
 7:7/0 = 0
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u50mg"]
+texture = ExtResource("16_ee4r6")
+texture_region_size = Vector2i(404, 342)
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hibaj"]
 texture = ExtResource("16_k12tt")
 texture_region_size = Vector2i(128, 128)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cbgmd"]
+texture = ExtResource("18_gt3je")
+texture_region_size = Vector2i(404, 342)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1w6v2"]
+texture = ExtResource("19_3pmx8")
+texture_region_size = Vector2i(484, 644)
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_ee4r6"]
 tile_size = Vector2i(128, 128)
 sources/0 = SubResource("TileSetAtlasSource_pdsj5")
 sources/3 = SubResource("TileSetAtlasSource_hibaj")
+sources/2 = SubResource("TileSetAtlasSource_u50mg")
+sources/4 = SubResource("TileSetAtlasSource_cbgmd")
+sources/5 = SubResource("TileSetAtlasSource_1w6v2")
 
 [node name="Main" type="Node2D" unique_id=1170430213]
 
 [node name="Player_1" parent="." unique_id=960122774 instance=ExtResource("2_bo1nx")]
 z_index = 0
-position = Vector2(-393, 137)
+position = Vector2(-995, 498)
 
 [node name="Player_2" parent="." unique_id=1689809568 instance=ExtResource("3_8gbba")]
-position = Vector2(-292, 130)
+position = Vector2(-894, 491)
 item_scene = ExtResource("7_6bp64")
 
 [node name="ChainManager" type="Node2D" parent="." unique_id=440691254 node_paths=PackedStringArray("player1", "player2")]
@@ -150,27 +172,27 @@ sag_amount = 30.0
 chain_segments = 10
 
 [node name="ColPlaceholder" parent="." unique_id=1523507040 instance=ExtResource("1_jjgbg")]
-position = Vector2(-306, 216.00002)
+position = Vector2(-926.99994, 560.00006)
 scale = Vector2(3.7807221, -3.9049459)
 
 [node name="ColPlaceholder2" parent="." unique_id=477467586 instance=ExtResource("1_jjgbg")]
-position = Vector2(172, 52)
+position = Vector2(-449, 396)
 scale = Vector2(3.3926642, -2.8389344)
 
 [node name="ColPlaceholder6" parent="." unique_id=1232953224 instance=ExtResource("1_jjgbg")]
-position = Vector2(-43, -175)
+position = Vector2(-664, 169)
 scale = Vector2(2.0618935, -3.224895)
 
 [node name="ColPlaceholder4" parent="." unique_id=617620687 instance=ExtResource("1_jjgbg")]
-position = Vector2(261, -142)
+position = Vector2(-360, 202)
 scale = Vector2(1.8177898, -3.2816768)
 
 [node name="ColPlaceholder5" parent="." unique_id=1389181253 instance=ExtResource("1_jjgbg")]
-position = Vector2(557, 10.999996)
+position = Vector2(-64, 354.99997)
 scale = Vector2(1.580643, -3.9049459)
 
 [node name="ColPlaceholder3" parent="." unique_id=2090670164 instance=ExtResource("1_jjgbg")]
-position = Vector2(-307, 7)
+position = Vector2(-928.00006, 351)
 scale = Vector2(3.8294947, -2.8304996)
 
 [node name="GameManager" type="Node" parent="." unique_id=1832831157]
@@ -252,12 +274,14 @@ one_shot = true
 autostart = true
 
 [node name="kill_zone" parent="." unique_id=851107442 groups=["mask"] instance=ExtResource("13_fdnlq")]
-position = Vector2(-212, 325)
+position = Vector2(-833, 669)
 
 [node name="finish_zone" parent="." unique_id=542659299 instance=ExtResource("14_jkdf5")]
-position = Vector2(831, -328)
+position = Vector2(210, 16)
 
 [node name="Node2D" type="Node2D" parent="." unique_id=215926900]
+z_index = -5
+position = Vector2(-476, 464)
 scale = Vector2(0.3, 0.3)
 
 [node name="bg" type="TileMapLayer" parent="Node2D" unique_id=228436181]
@@ -270,23 +294,33 @@ tile_set = SubResource("TileSet_hibaj")
 tile_set = SubResource("TileSet_ee4r6")
 
 [node name="ladder2" type="TileMapLayer" parent="Node2D" unique_id=943870796]
+scale = Vector2(0.8, 0.8)
+tile_map_data = PackedByteArray("AADz//P/AgAAAAAAAAA=")
 tile_set = SubResource("TileSet_ee4r6")
 
 [node name="ladder3" type="TileMapLayer" parent="Node2D" unique_id=661281912]
+scale = Vector2(0.5, 0.5)
+tile_map_data = PackedByteArray("AADn/wAABQAAAAAAAAD7/wAABQAAAAAAAAAMAAAABQAAAAAAAAAaAAAABQAAAAAAAADn//T/BQAAAAAAAAAXAPT/BQAAAAAAAAA=")
 tile_set = SubResource("TileSet_ee4r6")
 
 [node name="ladder4" type="TileMapLayer" parent="Node2D" unique_id=253987488]
 tile_set = SubResource("TileSet_ee4r6")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1799871521]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1799871521 node_paths=PackedStringArray("player")]
+script = ExtResource("17_fevyy")
+player = NodePath("../Player_1")
 
 [node name="LaddderArea2d" parent="." unique_id=1906700080 instance=ExtResource("4_jjvhh")]
-position = Vector2(-173, 113)
+position = Vector2(-794, 457)
 scale = Vector2(0.7149525, -0.7155188)
 
 [node name="LaddderArea2d2" parent="." unique_id=154642803 instance=ExtResource("4_jjvhh")]
-position = Vector2(514, -88)
+position = Vector2(-107, 255.99997)
 scale = Vector2(-0.5728572, 0.3738302)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=918789792]
+stream = ExtResource("18_b3802")
+autoplay = true
 
 [connection signal="maskOff" from="Player_2" to="CanvasLayer/Control" method="_on_player_2_mask_off"]
 [connection signal="maskOn" from="Player_2" to="CanvasLayer/Control" method="_on_player_2_mask_on"]

@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://d2ace8cc15hmw" path="res://Assets/Monyet Stress/Idle non mask/Juju Idle Alt_20260131180119.png" id="26_ln0u1"]
 [ext_resource type="Texture2D" uid="uid://dfktkq2rjc8gy" path="res://Assets/Monyet Stress/Idle non mask/Juju Idle Alt_20260131180121.png" id="27_43ws8"]
 [ext_resource type="Texture2D" uid="uid://d2skmgye7nuv2" path="res://Assets/Monyet Stress/Idle non mask/Juju Idle Alt_20260131180124.png" id="28_hc50e"]
+[ext_resource type="AudioStream" uid="uid://days5drhcibqw" path="res://Assets/monke.wav" id="38_yags3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_nwubq"]
 animations = [{
@@ -257,3 +258,7 @@ collision_mask = 65535
 hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="monkeReog" type="AudioStreamPlayer2D" parent="." unique_id=1723733663]
+stream = ExtResource("38_yags3")
+volume_db = 16.359
