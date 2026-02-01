@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bcih26dg86inw"]
 
 [ext_resource type="Script" uid="uid://ds210538bder2" path="res://Scripts/scene_kosong.gd" id="1_muqp8"]
+[ext_resource type="Texture2D" uid="uid://cjio4xxhm2i83" path="res://Assets/UI/creditbg.png" id="2_bj6cu"]
 [ext_resource type="FontFile" uid="uid://bb4l0e6tlofij" path="res://Assets/Font/Bangers.ttf" id="2_rlt5o"]
 [ext_resource type="Texture2D" uid="uid://c6usx11yvjjjd" path="res://Assets/UI/Back to Menu_20260201104306.png" id="3_btf1l"]
 [ext_resource type="Texture2D" uid="uid://sukqu3htijgg" path="res://Assets/UI/Back to Menu_20260201104309.png" id="4_bj6cu"]
@@ -14,34 +15,35 @@ offset_right = 611.0
 offset_bottom = 365.0
 script = ExtResource("1_muqp8")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1158130889]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=881415531]
 layout_mode = 0
-offset_left = -606.0
-offset_top = -369.0
-offset_right = 652.0
-offset_bottom = 447.0
-scale = Vector2(1.016797, 1)
-color = Color(0, 0, 0, 1)
+offset_left = -565.0
+offset_top = -314.0
+offset_right = 1355.0
+offset_bottom = 766.0
+scale = Vector2(0.5893238, 0.5828954)
+texture = ExtResource("2_bj6cu")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1861813106]
 
-[node name="TitleContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=946926413]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -364.0
-offset_top = -346.0
-offset_right = 210.0
-offset_bottom = -128.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.2, 1)
-alignment = 1
+[node name="CreditLabel2" type="Label" parent="CanvasLayer" unique_id=1714727042]
+modulate = Color(0.85882354, 0.14509805, 0.33333334, 1)
+offset_left = 260.0
+offset_top = 43.999996
+offset_right = 834.0
+offset_bottom = 152.0
+scale = Vector2(0.9733873, 1.0921019)
+theme_override_fonts/font = ExtResource("2_rlt5o")
+theme_override_font_sizes/font_size = 100
+text = "CREDIT"
+horizontal_alignment = 1
 
-[node name="CreditLabel" type="Label" parent="CanvasLayer/TitleContainer" unique_id=886158793]
-layout_mode = 2
+[node name="CreditLabel" type="Label" parent="CanvasLayer" unique_id=886158793]
+modulate = Color(0.24705882, 0.21568628, 0.2901961, 1)
+offset_left = 256.0
+offset_top = 35.0
+offset_right = 830.0
+offset_bottom = 143.0
 theme_override_fonts/font = ExtResource("2_rlt5o")
 theme_override_font_sizes/font_size = 100
 text = "CREDIT"
@@ -66,6 +68,7 @@ layout_mode = 2
 theme_override_constants/separation = 28
 
 [node name="CreditLabel1" type="Label" parent="CanvasLayer/CreditContainer/HBoxContainer" unique_id=1325021766]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rlt5o")
 text = "Monkey Sound Effect by 
@@ -73,6 +76,7 @@ u_5cr518l76d from Pixabay"
 horizontal_alignment = 1
 
 [node name="CreditLabel2" type="Label" parent="CanvasLayer/CreditContainer/HBoxContainer" unique_id=41593919]
+modulate = Color(0, 0, 0, 1)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_rlt5o")
 text = "Jump Sound Effect by 
