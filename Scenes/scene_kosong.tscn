@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bcih26dg86inw"]
 
 [ext_resource type="Script" uid="uid://ds210538bder2" path="res://Scripts/scene_kosong.gd" id="1_muqp8"]
+[ext_resource type="FontFile" uid="uid://bb4l0e6tlofij" path="res://Assets/Font/Bangers.ttf" id="2_rlt5o"]
 
 [node name="SceneKosong" type="Control" unique_id=1401004794]
 layout_mode = 3
@@ -11,25 +12,76 @@ offset_right = 611.0
 offset_bottom = 365.0
 script = ExtResource("1_muqp8")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1158130889]
+layout_mode = 0
+offset_left = -606.0
+offset_top = -369.0
+offset_right = 652.0
+offset_bottom = 447.0
+scale = Vector2(1.016797, 1)
+color = Color(0, 0, 0, 1)
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1861813106]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=946926413]
+[node name="TitleContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=946926413]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -204.0
-offset_top = -336.0
-offset_right = 370.0
-offset_bottom = -118.0
+offset_left = -361.0
+offset_top = -349.0
+offset_right = 213.0
+offset_bottom = -131.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.2, 1)
+alignment = 1
 
-[node name="GameOverLabel" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=886158793]
+[node name="CreditLabel" type="Label" parent="CanvasLayer/TitleContainer" unique_id=886158793]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rlt5o")
 theme_override_font_sizes/font_size = 100
 text = "CREDIT"
+horizontal_alignment = 1
+
+[node name="CreditContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1096622689]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -139.0
+offset_right = 253.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1, 1.8400002)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/CreditContainer" unique_id=266189970]
+layout_mode = 2
+theme_override_constants/separation = 28
+
+[node name="CreditLabel1" type="Label" parent="CanvasLayer/CreditContainer/HBoxContainer" unique_id=1325021766]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rlt5o")
+text = "Monkey Sound Effect by 
+u_5cr518l76d from Pixabay"
+horizontal_alignment = 1
+
+[node name="CreditLabel2" type="Label" parent="CanvasLayer/CreditContainer/HBoxContainer" unique_id=41593919]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_rlt5o")
+text = "Jump Sound Effect by 
+freesound_community from Pixabay"
+horizontal_alignment = 1
+
+[node name="CreditLabel3" type="Label" parent="CanvasLayer/CreditContainer/HBoxContainer" unique_id=348695868]
+layout_mode = 2
+
+[node name="CreditLabel4" type="Label" parent="CanvasLayer/CreditContainer/HBoxContainer" unique_id=1831186698]
+layout_mode = 2
 
 [node name="BackToMenuButton" type="Button" parent="." unique_id=38028917]
 layout_mode = 0
@@ -37,6 +89,7 @@ offset_left = -282.0
 offset_top = 31.0
 offset_right = 292.0
 offset_bottom = 108.0
+theme_override_fonts/font = ExtResource("2_rlt5o")
 theme_override_font_sizes/font_size = 50
 text = "BACK TO MENU
 "
