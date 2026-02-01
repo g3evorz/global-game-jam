@@ -61,12 +61,18 @@ func _ladder_detect():
 	if $LadderDetectRay.is_colliding() and !is_on_floor():
 		if Input.is_action_pressed("up_1") or Input.is_action_pressed("down_1"):
 			on_ladder = true
-			is_jumping = false # Cancel jumping state on ladder
+			is_jumping = false 
 			
-			var desired_x_pos: float = $LadderDetectRay.get_collider().get_child($LadderDetectRay.get_collider_shape()).global_position.x
-			if global_position.x != desired_x_pos:
-				var x_pos_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
-				x_pos_tween.tween_property(self, "global_position:x", desired_x_pos, 0.05)
+			# Get the ladder object itself
+			var ladder_object = $LadderDetectRay.get_collider()
+			
+			if ladder_object:
+				# Use the ladder's global_position directly to snap to its center
+				var desired_x_pos: float = ladder_object.global_position.x
+				
+				if abs(global_position.x - desired_x_pos) > 1.0: # Only tween if far enough away
+					var x_pos_tween: Tween = create_tween().set_trans(Tween.TRANS_SINE)
+					x_pos_tween.tween_property(self, "global_position:x", desired_x_pos, 0.05)
 	else:
 		on_ladder = false
 
