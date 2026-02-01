@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://e2x8gk1mcfm5"]
 
 [ext_resource type="Script" uid="uid://cr666fxtmub1l" path="res://Scripts/game_over_manager.gd" id="1_ojehl"]
+[ext_resource type="FontFile" uid="uid://bb4l0e6tlofij" path="res://Assets/Font/Bangers.ttf" id="2_8fo1c"]
 
 [node name="GameOver" type="Control" unique_id=1401004794]
 layout_mode = 3
@@ -28,11 +29,13 @@ grow_vertical = 2
 
 [node name="GameOverLabel" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=886158793]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8fo1c")
 theme_override_font_sizes/font_size = 100
 text = "GAME OVER"
 
 [node name="RetryButton" type="Button" parent="CanvasLayer/VBoxContainer" unique_id=38028917]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8fo1c")
 theme_override_font_sizes/font_size = 50
 text = "Retry
 "
