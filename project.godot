@@ -15,9 +15,13 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Global_Game_Jam"
-run/main_scene="uid://b77lie4y80eqs"
-config/features=PackedStringArray("4.6", "GL Compatibility")
+run/main_scene="uid://dxxj3ifibr1l5"
+config/features=PackedStringArray("4.5", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="viewport"
 
 [global_group]
 

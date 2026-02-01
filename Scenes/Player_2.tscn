@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://brvabdlf0galo"]
+[gd_scene load_steps=41 format=3 uid="uid://brvabdlf0galo"]
 
 [ext_resource type="Script" uid="uid://14pag2ev5ibp" path="res://Scripts/player_2.gd" id="1_iqhtf"]
 [ext_resource type="Texture2D" uid="uid://bx2xapkvnulga" path="res://Assets/Monyet Stress/Idle/Juju Idle_20260131180036.png" id="2_2w1db"]
@@ -236,21 +236,21 @@ animations = [{
 radius = 14.0
 height = 48.0
 
-[node name="Player_2" type="CharacterBody2D" unique_id=960122774]
+[node name="Player_2" type="CharacterBody2D"]
 position = Vector2(3, 0)
 collision_layer = 2
 script = ExtResource("1_iqhtf")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1224819559]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.1, 0.1)
 sprite_frames = SubResource("SpriteFrames_nwubq")
 animation = &"Jump"
 frame_progress = 0.99454
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=912313588]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_qbkls")
 
-[node name="LadderDetectRay" type="RayCast2D" parent="." unique_id=1232377505]
+[node name="LadderDetectRay" type="RayCast2D" parent="."]
 position = Vector2(0, -1.75)
 scale = Vector2(13.794852, 5.168)
 target_position = Vector2(0, 5.5)
@@ -259,6 +259,6 @@ hit_from_inside = true
 collide_with_areas = true
 collide_with_bodies = false
 
-[node name="monkeReog" type="AudioStreamPlayer2D" parent="." unique_id=1723733663]
+[node name="monkeReog" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("38_yags3")
 volume_db = 16.359
