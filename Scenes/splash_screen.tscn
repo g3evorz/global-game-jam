@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://dl81o1u3cjo6o"]
+
+[ext_resource type="Texture2D" uid="uid://b4txwmvhbs4ny" path="res://Assets/UI/Nuon Games Biru Vertical.png" id="1_6b1b0"]
+[ext_resource type="Script" uid="uid://dgqke3yb1ja1y" path="res://Scenes/splash_screen.gd" id="1_wwf30"]
+
+[node name="SplashScreen" type="Control" unique_id=624192694]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_wwf30")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1261193966]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1457079730]
+offset_right = 1155.0
+offset_bottom = 645.0
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=632832182]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=1441624036]
+offset_left = 254.0
+offset_top = 67.0
+offset_right = 923.0
+offset_bottom = 708.0
+scale = Vector2(1, 0.8299538)
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/VBoxContainer" unique_id=281626645]
+layout_mode = 2
+texture = ExtResource("1_6b1b0")
+expand_mode = 5
+
+[node name="Timer" type="Timer" parent="." unique_id=1775066475]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

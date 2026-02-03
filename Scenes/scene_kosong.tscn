@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://bb4l0e6tlofij" path="res://Assets/Font/Bangers.ttf" id="2_rlt5o"]
 [ext_resource type="Texture2D" uid="uid://c6usx11yvjjjd" path="res://Assets/UI/Back to Menu_20260201104306.png" id="3_btf1l"]
 [ext_resource type="Texture2D" uid="uid://sukqu3htijgg" path="res://Assets/UI/Back to Menu_20260201104309.png" id="4_bj6cu"]
+[ext_resource type="Texture2D" uid="uid://b4txwmvhbs4ny" path="res://Assets/UI/Nuon Games Biru Vertical.png" id="6_b8f65"]
 
 [node name="SceneKosong" type="Control" unique_id=1401004794]
 layout_mode = 3
@@ -103,5 +104,18 @@ texture_hover = ExtResource("4_bj6cu")
 [node name="Background" type="Sprite2D" parent="." unique_id=1029646421]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1167530224]
+
+[node name="NuonGamesBiruVertical" type="Sprite2D" parent="." unique_id=147378197]
+position = Vector2(-447, 187)
+scale = Vector2(-0.055, -0.055)
+texture = ExtResource("6_b8f65")
+
+[node name="Label" type="Label" parent="." unique_id=1849930269]
+layout_mode = 0
+offset_left = -504.0
+offset_top = 85.0
+offset_right = -398.0
+offset_bottom = 108.0
+text = "Sponsored by"
 
 [connection signal="pressed" from="BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
