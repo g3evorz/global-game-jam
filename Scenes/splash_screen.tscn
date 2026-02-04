@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dl81o1u3cjo6o"]
 
 [ext_resource type="Texture2D" uid="uid://b4txwmvhbs4ny" path="res://Assets/UI/Nuon Games Biru Vertical.png" id="1_6b1b0"]
-[ext_resource type="Script" uid="uid://dgqke3yb1ja1y" path="res://Scenes/splash_screen.gd" id="1_wwf30"]
+[ext_resource type="Script" uid="uid://dgqke3yb1ja1y" path="res://Scripts/splash_screen.gd" id="1_wwf30"]
 
 [node name="SplashScreen" type="Control" unique_id=624192694]
 layout_mode = 3
