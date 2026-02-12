@@ -13,6 +13,10 @@ func _ready() -> void:
 	
 	
 func _on_player_2_mask_off() -> void:
+	var tween = create_tween().set_loops(6)
+	tween.tween_property(maskOn, "modulate", Color(1, 0, 0), 0.25)
+	tween.tween_property(maskOn, "modulate", Color(1, 1, 1), 0.25)
+	await tween.finished
 	maskOff.show()
 
 

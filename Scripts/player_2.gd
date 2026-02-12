@@ -112,16 +112,19 @@ func ladder_movement(delta: float):
 			sprite.pause()
 
 func _on_drop_timer_timeout():
+	maskOff.emit()
+	await get_tree().create_timer(3.0).timeout
 	drop_item()
 
 func drop_item():
 	if not item_scene:
 		return
 	
+	
 	var item = item_scene.instantiate()
 	item.global_position = global_position + drop_offset
 	
-	maskOff.emit()
+	
 	
 	item.item_destroyed.connect(_on_item_destroyed)
 	get_parent().add_child(item)
